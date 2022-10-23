@@ -1,6 +1,6 @@
-var camas_adultos=[];
+var presion=[];
 // Consumo de la API
-fetch('https://www.datos.gov.co/resource/fa2g-cdft.json')
+fetch('dataSet.json')
 
     // Then necesita una promesa, y esa promesa se resuelve con una respuesta 
     .then(datos_obtenidos => datos_obtenidos.json())
@@ -11,15 +11,15 @@ fetch('https://www.datos.gov.co/resource/fa2g-cdft.json')
         // Iteramos sobre cada dato
         datos_obtenidos.forEach(function agregar(datos_obtenidos) {
             //Si los datos son diferentes de vacío
-            if (datos_obtenidos.camas_adultos != undefined ) {
-                camas_adultos.push(datos_obtenidos.camas_adultos);
+            if (datos_obtenidos.presion != undefined ) {
+                presion.push(datos_obtenidos.presion);
             }
         });
 
     let mayor=0;
-    for ( i = 0; i < camas_adultos.length; i++) {
-        if(camas_adultos[i]>mayor){
-            mayor=camas_adultos[i];
+    for ( i = 0; i < presion.length; i++) {
+        if(presion[i]>mayor){
+            mayor=presion[i];
         }
     }
    console.log(mayor);
@@ -43,7 +43,6 @@ fetch('https://www.datos.gov.co/resource/fa2g-cdft.json')
     }
   ];
   var layout = {
-    width: 550,
     height: 280,
     template: {
       data: {

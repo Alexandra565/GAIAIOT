@@ -1,9 +1,9 @@
-var a_o = [];
-var camas_adultos=[];
+var hora = [];
+var temperatura=[];
 
 
 // Consumo de la API
-fetch('https://www.datos.gov.co/resource/fa2g-cdft.json')
+fetch('dataSet.json')
 
     // Then necesita una promesa, y esa promesa se resuelve con una respuesta 
     .then(datos_obtenidos => datos_obtenidos.json())
@@ -14,15 +14,15 @@ fetch('https://www.datos.gov.co/resource/fa2g-cdft.json')
         // Iteramos sobre cada dato
         datos_obtenidos.forEach(function agregar(datos_obtenidos) {
             //Si los datos son diferentes de vacío
-            if (datos_obtenidos.a_o != undefined && datos_obtenidos.camas_adultos) {
-                a_o.push(datos_obtenidos.a_o);
-                camas_adultos.push(datos_obtenidos.camas_adultos);
+            if (datos_obtenidos.hora != undefined && datos_obtenidos.temperatura) {
+                hora.push(datos_obtenidos.hora);
+                temperatura.push(datos_obtenidos.temperatura);
             }
         });
 
         var trace1 = {
-            x: [2017,2018,2019,2020],
-            y: camas_adultos,
+            x: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+            y: temperatura,
             type: 'scatter'
           };
                 // Estilos de la gráfica
